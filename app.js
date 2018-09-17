@@ -14,7 +14,7 @@ const authRouter = require('./routes/auth');
 
 const app = express();
 
-// -- connect to mondgoose
+// -- connect to mongoose
 
 mongoose.connect('mongodb://localhost/auth-demo', {
   keepAlive: true,
