@@ -5,15 +5,27 @@
     <title>Welcome to our Website! Axel & Diana</title>
   </head>
   <body class="container">
-    <header>
+    <header id="site-header">
       <nav>
-        <h1>Welcome to our Website! Axel & Diana</h1>
-        <a href="/auth/signup">Signup</a> - <a href="/auth/login">Login</a>
+        <a href="/"><h1>Welcome to our Website! Axel & Diana</h1></a>
+        {{#unless currentUser}}
+        <div class="links">
+          <a class="button" href="/auth/signup">Sign-up</a> - <a class="button" href="/auth/login">Log-in</a>
+        </div>
+        {{/unless}}
+        {{#if currentUser}}
+        Logged as {{currentUser.username}}
         <form method="POST" action="/auth/logout">
-            <button type="submit">Log out</button>
+            <button class="button" type="submit">Log out</button>
         </form>
+        {{/if}}
       </nav>
     </header>
+    <main id="site-main">
     {{{body}}}
+    </main>
+    <footer id="site-footer">
+
+    </footer>
   </body>
 </html>
