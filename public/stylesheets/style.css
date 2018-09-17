@@ -13,6 +13,11 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  display: inline;
+}
+
 
 /* ---- typography ---- */
 
@@ -51,6 +56,7 @@ p {
 
 #site-main {
   margin-bottom: 60px;
+  text-align: center;
 }
 
 .container {
@@ -70,15 +76,15 @@ p {
 }
 
 
-
-
 /* ---- components ---- */
 
 .button {
   width: 100%;
-  background-color: blue;
+  background-color: rgb(36, 36, 129);
   color: #fff;
-  border: 1px solid #fff
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .button-alt {
@@ -88,12 +94,31 @@ p {
 
 /* ---- section ---- */
 
-
 section.testimonials .button {
   margin-bottom: 10px;
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+}
 
+header h1 {
+  flex: 1;
+  font-size: 15px;
+  color: white;
+}
+
+nav .links {
+  flex: 1;
+  text-align: end;
+  margin: auto 10px;
+  height: auto;
+}
+
+.links a{
+  color: white;
+}
 /* -- forms -- */
 
 form.is-processing {

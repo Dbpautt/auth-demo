@@ -7,6 +7,9 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
 router.get('/signup', (req, res, next) => {
+  if (req.session.currentUser) {
+    return res.redirect('/');
+  }
   const signupError = req.flash('signup-form-error');
   const usernameError = req.flash('username-form-error');
   const data = {
@@ -17,6 +20,9 @@ router.get('/signup', (req, res, next) => {
 });
 
 router.post('/signup', (req, res, next) => {
+  if (req.session.currentUser) {
+    return res.redirect('/');
+  }
   const { username, password } = req.body;
   if (!username || !password) {
     req.flash('signup-form-error', 'Username and password are mandatory');
@@ -41,6 +47,9 @@ router.post('/signup', (req, res, next) => {
 });
 
 router.get('/login', (req, res, next) => {
+  if (req.session.currentUser) {
+    return res.redirect('/');
+  }
   const loginError = req.flash('login-form-error');
   const loginData = req.flash('login-form-data');
   const usernameLoginError = req.flash('usernamelogin-form-error');
@@ -53,6 +62,9 @@ router.get('/login', (req, res, next) => {
 });
 
 router.post('/login', (req, res, next) => {
+  if (req.session.currentUser) {
+    return res.redirect('/');
+  }
   const { username, password } = req.body;
   if (!username || !password) {
     req.flash('login-form-error', 'Username and password are mandatory');
